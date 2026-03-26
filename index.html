@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BALA JI CNC INTERNATIONAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+body{overflow-x:hidden;color:white;background: linear-gradient(270deg,#111,#1a1a1a,#222,#111);background-size:800% 800%;animation:gradientBG 20s ease infinite;transition:0.3s;}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* Navigation */
+nav{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.85);position:sticky;top:0;z-index:100;}
+nav h2{color:#22c55e;}
+nav a{margin-left:20px;color:white;text-decoration:none;transition:0.3s;}
+nav a:hover{color:#ffd700;}
+nav button{padding:5px 12px;background:#22c55e;border:none;color:white;border-radius:6px;cursor:pointer;}
+
+/* Hero Section */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:2px solid #22c55e;
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+  background-size:cover;
+  background-position:center;
+  transition:0.5s;
+}
+.hero::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+.hero-content{
+  position:relative; z-index:2;
+  animation:fadeIn 2s ease-out;
+}
+.hero h1{
+  font-size:60px;
+  color:#ffd700;
+  text-shadow:0 0 25px #000;
+}
+.hero p{
+  font-size:22px;
+  margin-top:15px;
+  color:#eee;
+}
+@keyframes fadeIn{0%{opacity:0; transform:translateY(20px);}100%{opacity:1; transform:translateY(0);}}
+
+/* Section styling */
+section{padding:60px 40px;margin:20px;border-radius:15px;}
+h2{color:#ffd700;text-align:center;margin-bottom:20px;}
+p{color:#eee;line-height:1.7;}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:rgba(34,34,34,0.85);padding:20px;border-radius:10px;text-align:center;box-shadow:0 0 20px rgba(34,197,94,0.4);transition:0.3s;}
+.card:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(34,197,94,0.6);}
+
+/* Highlight Award Section */
+.highlight-award{
+  background: linear-gradient(135deg,#222,#000);
+  padding:80px 40px;
+  margin:20px;
+  border-radius:20px;
+  box-shadow:0 0 40px #ffd700;
+  text-align:center;
+  border:2px solid #ffd700;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.highlight-award:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 60px #ffd700;
+}
+.highlight-award .card{
+  font-size:20px;
+  font-weight:600;
+  background: rgba(255,215,0,0.1);
+  color:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(255,215,0,0.4);
+}
+
+/* Dashboard */
+.input-card{background:rgba(34,34,34,0.85);padding:20px;margin-bottom:25px;border-radius:12px;}
+.input-card input, .input-card textarea{width:100%;margin:8px 0;padding:10px;border-radius:6px;border:none;background:#222;color:white;}
+.input-card button{padding:10px 20px;background:#22c55e;border:none;color:white;border-radius:6px;cursor:pointer;}
+table{width:100%;border-collapse:collapse;background:rgba(34,34,34,0.85);}
+th, td{padding:8px;text-align:center;border:1px solid #22c55e;color:white;}
+
+/* Gallery Flexbox */
+.gallery-flex{
+  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+}
+.gallery-flex div{
+  flex:1 1 250px;max-width:300px;
+}
+.gallery-flex img{
+  width:100%;height:200px;object-fit:cover;border-radius:8px;transition:transform 0.3s;
+}
+.gallery-flex img:hover{transform:scale(1.1);}
+
+/* Mobile Responsive */
+@media (max-width:768px){
+  nav{flex-direction:column;align-items:flex-start;padding:15px;}
+  nav div{margin-top:10px;display:flex;flex-wrap:wrap;}
+  nav a{margin:5px 10px;}
+  .hero h1{font-size:35px;}
+  .hero p{font-size:16px;}
+  .cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+  .gallery-flex div{flex:1 1 100%;max-width:100%;}
+  table, th, td{font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<h2>BALA JI CNC</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#business">Business</a>
+<a href="#award">Award</a>
+<a href="#dashboard">Dashboard</a>
+<button onclick="toggleTheme()">🌙</button>
+</div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Welcome to BALA JI CNC INTERNATIONAL</h1>
+    <p>Precision CNC Machining for Tomorrow's Industry</p>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+<h2>About Us</h2>
+<p>BALA JI CNC INTERNATIONAL is a leading CNC machining company providing advanced industrial solutions across India. With cutting‑edge machinery and highly skilled engineers, we produce precision components for a wide range of sectors. Our production processes adhere to international quality standards and ensure timely delivery. We specialize in CNC machining, metal cutting, custom parts fabrication, assembly services, and engineering consultation. We continuously invest in R&D to stay ahead in technology. Our commitment to safety, quality, and customer satisfaction drives every project. Innovation, reliability, and precision define our services.</p>
+</section>
+
+<!-- Services -->
+<section id="services">
+<h2>Our Services</h2>
+<div class="cards">
+<div class="card">CNC Machining</div>
+<div class="card">Metal Cutting</div>
+<div class="card">Custom Parts Fabrication</div>
+</div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery-flex">
+  <div><img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80" alt="Machine"></div>
+  <div><img src="https://images.unsplash.com/photo-1581091012184-d5a2645a57c0?auto=format&fit=crop&w=800&q=80" alt="Factory"></div>
+  <div><img src="https://images.unsplash.com/photo-1604908177521-06f5d40880c0?auto=format&fit=crop&w=800&q=80" alt="Machining"></div>
+  <div><img src="https://images.unsplash.com/photo-1611123196433-46440f8317a4?auto=format&fit=crop&w=800&q=80" alt="CNC"></div>
+  <div><img src="https://images.unsplash.com/photo-1596496054315-1b290e76dc42?auto=format&fit=crop&w=800&q=80" alt="Workshop"></div>
+</div>
+</section>
+
+<!-- Business -->
+<section id="business">
+<h2>Business Performance</h2>
+<div class="cards">
+<div class="card"><div class="counter" id="rev">0</div>Revenue</div>
+<div class="card"><div class="counter" id="prof">0</div>Profit</div>
+<div class="card"><div class="counter" id="loss">0</div>Loss</div>
+</div>
+</section>
+
+<!-- Award -->
+<section id="award" class="highlight-award">
+<h2>🏆 Award</h2>
+<div class="cards">
+<div class="card">Industrial Excellence Award – Recognized by National Board</div>
+</div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard">
+<h2>Account Dashboard</h2>
+
+<div class="input-card">
+<h3>Finance Entry</h3>
+<input id="income" placeholder="Income">
+<input id="expense" placeholder="Expense">
+<input id="stock" placeholder="Stock">
+<input id="sold" placeholder="Sold Quantity">
+<input id="gst" placeholder="GST %" value="18">
+<button onclick="addFinance()">Add Entry</button>
+<button onclick="printLedger()">Print Ledger</button>
+</div>
+
+<div class="input-card">
+<h3>Ledger</h3>
+<table id="ledger">
+<tr><th>#</th><th>Income</th><th>Expense</th><th>Stock</th><th>Sold</th><th>Revenue</th><th>Profit</th><th>Loss</th><th>GST</th><th>Net</th><th>Action</th></tr>
+</table>
+</div>
+
+<div class="input-card">
+<h3>Add Lead</h3>
+<input id="lname" placeholder="Lead Name">
+<input id="lphone" placeholder="Lead Phone">
+<button onclick="addLead()">Add Lead</button>
+<div id="leads"></div>
+</div>
+
+<div class="input-card">
+<h3>Quick WhatsApp</h3>
+<input id="cname" placeholder="Customer Name">
+<input id="cphone" placeholder="Phone">
+<textarea id="cmsg" placeholder="Message"></textarea>
+<button onclick="sendMsg()">Send</button>
+</div>
+
+<div class="input-card">
+<h3>Upload Owner / CNC Image for Hero Banner</h3>
+<input type="file" id="ownerPic" accept="image/*">
+<button onclick="uploadHeroImage()">Upload</button>
+</div>
+
+</section>
+
+<script>
+// Theme Toggle
+function toggleTheme(){document.body.classList.toggle("light");}
+
+// Counters
+let rv=0,pf=0,ls=0;
+setInterval(()=>{
+if(rv<300000) rv+=3000;
+if(pf<150000) pf+=2000;
+if(ls<20000) ls+=300;
+document.getElementById("rev").innerText=rv;
+document.getElementById("prof").innerText=pf;
+document.getElementById("loss").innerText=ls;
+},100);
+
+// Leads
+function addLead(){
+let nm=document.getElementById("lname").value;
+let ph=document.getElementById("lphone").value;
+let arr=JSON.parse(localStorage.getItem("leads"))||[];
+arr.push({nm,ph});
+localStorage.setItem("leads",JSON.stringify(arr));
+showLeads();
+}
+function showLeads(){
+let arr=JSON.parse(localStorage.getItem("leads"))||[];
+document.getElementById("leads").innerHTML="";
+arr.forEach((d,i)=>{document.getElementById("leads").innerHTML+=`<div class="card">${d.nm} - ${d.ph} <button onclick="delLead(${i})">Delete</button></div>`;});
+}
+function delLead(i){let arr=JSON.parse(localStorage.getItem("leads"));arr.splice(i,1);localStorage.setItem("leads",JSON.stringify(arr));showLeads();}
+showLeads();
+
+// Finance & Ledger
+function addFinance(){
+let inc=Number(document.getElementById("income").value)||0;
+let exp=Number(document.getElementById("expense").value)||0;
+let stk=Number(document.getElementById("stock").value)||0;
+let sold=Number(document.getElementById("sold").value)||0;
+let gst=Number(document.getElementById("gst").value)||0;
+let price=stk?inc/stk:0;
+let revenue=sold*price;
+let profit=revenue-exp;
+let gstAmt=revenue*(gst/100);
+let net=profit-gstAmt;
+let tbl=document.getElementById("ledger");
+let r=tbl.insertRow();
+r.insertCell(0).innerText=tbl.rows.length-1;
+r.insertCell(1).innerText=inc.toFixed(2);
+r.insertCell(2).innerText=exp.toFixed(2);
+r.insertCell(3).innerText=stk;
+r.insertCell(4).innerText=sold;
+r.insertCell(5).innerText=revenue.toFixed(2);
+r.insertCell(6).innerText=profit.toFixed(2);
+r.insertCell(7).innerText=(exp-profit).toFixed(2);
+r.insertCell(8).innerText=gstAmt.toFixed(2);
+r.insertCell(9).innerText=net.toFixed(2);
+r.insertCell(10).innerHTML=`<button onclick="delRow(this)">Delete</button>`;
+}
+function delRow(btn){btn.closest("tr").remove();}
+function printLedger(){let div= document.getElementById("ledger").outerHTML;let w=window.open("");w.document.write("<h3>BALA JI CNC INTERNATIONAL - Ledger</h3>"+div);w.print();}
+function sendMsg(){let name=document.getElementById("cname").value;let phone=document.getElementById("cphone").value;let msg=document.getElementById("cmsg").value;window.open("https://wa.me/91"+phone+"?text="+encodeURIComponent(msg));}
+
+// Upload Hero Background Image
+function uploadHeroImage(){
+  const fileInput = document.getElementById("ownerPic");
+  const hero = document.querySelector(".hero");
+  if(fileInput.files && fileInput.files[0]){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      hero.style.background = `url('${e.target.result}') center/cover no-repeat`;
+      localStorage.setItem("heroImage", e.target.result);
+    }
+    reader.readAsDataURL(fileInput.files[0]);
+  } else { alert("Please select an image!"); }
+}
+// Load saved hero image
+window.addEventListener("load",()=>{
+  const savedHero = localStorage.getItem("heroImage");
+  if(savedHero){
+    document.querySelector(".hero").style.background = `url('${savedHero}') center/cover no-repeat`;
+  }
+});
+</script>
+</body>
+</html>
